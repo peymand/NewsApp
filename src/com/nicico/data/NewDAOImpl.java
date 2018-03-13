@@ -35,4 +35,15 @@ public class NewDAOImpl implements NewDAO {
         session.close();
         return newList;
     }
+
+    @Override
+    public void delete(int id) {
+        Session session=HibernateUtil.getSession();
+        session.getTransaction().begin();
+        New anew=new New();
+        anew.setId(id);
+        session.delete(anew);
+        session.getTransaction().commit();
+        session.close();
+    }
 }

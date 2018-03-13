@@ -13,6 +13,7 @@ Year: 2018
 public interface NewDAO {
     void addNew(New aNew);
     List<New> getAll();
+    void delete (int id);
 
 
 }

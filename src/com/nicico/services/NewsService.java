@@ -27,4 +27,7 @@ public class NewsService {
     public List<New> getAll(){
         return this.newDAO.getAll();
     }
+    public void delete(int id){
+        this.newDAO.delete(id);
+    }
 }

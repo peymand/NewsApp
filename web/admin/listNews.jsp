@@ -33,11 +33,14 @@
                     <th>Edit</th>
                 </tr>
                 <c:forEach  items="${news}" var="item">
-                    <tr>
+                    <tr class="active">
                     <td>${item.id}</td>
                     <td>${item.title}</td>
                     <td>${item.detail}</td>
-                    <td>x</td>
+                        <td><a href="/admin/deleteNews.do?id=${item.id}"><button title="" type="button"
+                                                                                 class="btn btn-danger remove show_tip"
+                                                                                 data-original-title="Remove from list">
+                            <i class="fa fa-trash-o"></i></button></a></td>
                     <td>E</td>
                     </tr>
 

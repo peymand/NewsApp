@@ -23,12 +23,12 @@
             <div class="form-group">
                 <label for="title">Title</label>
                 <input id="title" type="text"
-                       class="form-control" name="title"/>
+                       class="form-control" value="${param.title}" name="title"/>
             </div>
 
             <div class="form-group">
                 <label for="detail">Detail</label>
-                <textarea class="form-control" id ="detail" name="detail" rows="3"></textarea>
+                <textarea class="form-control" id ="detail" name="detail" rows="3">${param.detail}</textarea>
             </div>
 
 

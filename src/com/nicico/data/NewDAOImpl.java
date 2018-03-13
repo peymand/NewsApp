@@ -46,4 +46,9 @@ public class NewDAOImpl implements NewDAO {
         session.getTransaction().commit();
         session.close();
     }
+
+    @Override
+    public void update(New bNew) {
+
+    }
 }

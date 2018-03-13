@@ -14,6 +14,7 @@ public interface NewDAO {
     void addNew(New aNew);
     List<New> getAll();
     void delete (int id);
+    void update (New bNew);
 
 
 }

@@ -9,32 +9,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 import java.util.List;
 
 /* com.kahkeshan.controllers
 @Author:Peyman
-Date: 3/10/2018
-Time: 6:56 PM
+Date: 3/13/2018
+Time: 11:11 AM
 Year: 2018
 */
-@WebServlet("/addnew.do")
-public class AddNewController extends HttpServlet {
-    NewsService newsService ;
-
-    public AddNewController() {
+@WebServlet("/admin/listNews.do")
+public class ListNewsController extends HttpServlet{
+    public ListNewsController() {
         this.newsService = new NewsService();
     }
 
+    private NewsService newsService;
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String title = req.getParameter("title");
-        String detail = req.getParameter("detail");
-        New aNew = new New(title,detail, new Date());
-       // List<New> news = (List<New>) getServletContext().getAttribute("news");
-        this.newsService.addNew(aNew);
-       // getServletContext().setAttribute("news",news);
-
-        resp.sendRedirect("/admin/listNews.do");
+        List<New> newList=newsService.getAll();
+        req.setAttribute("news",newList);
+        req.getRequestDispatcher("/admin/listNews.jsp").forward(req,resp);
     }
 }

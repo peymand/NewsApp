@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
@@ -15,35 +16,37 @@
     <title>Title</title>
 </head>
 <body>
-<%
-    List<New> news = (List<New>) getServletConfig().getServletContext().getAttribute("news");
-%>
-<div class="container">
-    <table class="table">
-        <tr>
-            <th>Title</th>
-            <th>Detail</th>
-        </tr>
-        <%
-            for (New aNew : news) {
-        %>
-        <tr>
-            <td>
-                <%=aNew.getTitle()%>
-            </td>
-            <td>
-                <%=aNew.getDetail()%>
-            </td>
-        </tr>
-        <%
-            }
-        %>
-    </table>
-    <form action="/admin/newsPage.jsp">
-        <input type="submit" class="btn btn-info" value="Add"/>
-    </form>
+    <div class="container" >
+        <div class="row col-sm-8 col-offset-2"  >
+            <form action="/admin/newsPage.jsp" method="get" class="form">
+                <input type="submit" value="Add" class="btn btn-info">
+            </form>
 
-</div>
+        </div>
+        <div class="row col-sm-8 col-offset-2" >
+            <table class="table" >
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Desc</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
+                </tr>
+                <c:forEach  items="${news}" var="item">
+                    <tr>
+                    <td>${item.id}</td>
+                    <td>${item.title}</td>
+                    <td>${item.detail}</td>
+                    <td>x</td>
+                    <td>E</td>
+                    </tr>
+
+                </c:forEach>
+            </table>
+        </div>
+
+    </div>
+
 
 
 </body>

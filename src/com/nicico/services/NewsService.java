@@ -4,6 +4,8 @@ import com.kahkeshan.models.New;
 import com.nicico.data.NewDAO;
 import com.nicico.data.NewDAOImpl;
 
+import java.util.List;
+
 /* com.nicico.services
 @Author:Peyman
 Date: 3/13/2018
@@ -20,7 +22,9 @@ public class NewsService {
 
     public void addNew(New item){
         this.newDAO.addNew(item);
+    }
 
-
+    public List<New> getAll(){
+        return this.newDAO.getAll();
     }
 }

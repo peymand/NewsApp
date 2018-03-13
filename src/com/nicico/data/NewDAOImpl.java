@@ -3,6 +3,10 @@ package com.nicico.data;
 import com.kahkeshan.models.New;
 import com.nicico.util.HibernateUtil;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+
+import java.util.List;
 
 /* com.nicico.data
 @Author:Peyman
@@ -20,5 +24,15 @@ public class NewDAOImpl implements NewDAO {
         session.save(item);
         session.getTransaction().commit();
         session.close();
+    }
+
+    @Override
+    public List<New> getAll() {
+        List<New> newList;
+        Session session=HibernateUtil.getSession();
+        Query query = session.createQuery("from New");
+        newList=query.list();
+        session.close();
+        return newList;
     }
 }

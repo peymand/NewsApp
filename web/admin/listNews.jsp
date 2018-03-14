@@ -19,12 +19,6 @@
 <body>
 <div class="container">
     <div class="row col-sm-8 col-md-offset-2">
-        <form action="/admin/newsPage.jsp" method="get" class="form">
-            <input type="submit" value="Add" class="btn btn-info">
-        </form>
-
-    </div>
-    <div class="row col-sm-8 col-md-offset-2">
         <table class="table">
             <tr>
                 <th>Id</th>
@@ -45,7 +39,7 @@
                             <i class="fa fa-trash-o"></i></button>
                     </a></td>
 
-                    <td><a href="/admin/newsPage.jsp?id=${item.id}&title=${item.title}&detail=${item.detail}">
+                    <td><a href="/admin/addoreditPage.jsp?id=${item.id}&title=${item.title}&detail=${item.detail}">
                         <button title="edit" type="button"
                                 class="btn btn-info edit show_tip"
                                 data-original-title="Edit from list">

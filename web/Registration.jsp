@@ -51,7 +51,7 @@
                     </label>
                 </div>
             </div>
-        </div> <!-- /.form-group -->
+        </div>
         <div class="form-group">
             <div class="col-sm-9 col-sm-offset-3">
                 <button type="submit" class="btn btn-primary btn-block">Register</button>

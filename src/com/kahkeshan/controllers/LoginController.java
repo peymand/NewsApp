@@ -34,7 +34,6 @@ public class LoginController extends HttpServlet {
         if (isValid) {
             User user = new User(username, password);
             String role = loginService.getRole(user);
-
             if (role == null) {
                 resp.sendRedirect("/login.jsp?msg=role is not defined!!!");
             }

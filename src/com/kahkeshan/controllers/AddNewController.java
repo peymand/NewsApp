@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -29,10 +31,17 @@ public class AddNewController extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String idParam = req.getParameter("id");
-
+        String date =  req.getParameter("date");
+        SimpleDateFormat format=new SimpleDateFormat("yyyy-mm-dd");
+        Date d = null;
+        try {
+           d = format.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         String title = req.getParameter("title");
         String detail = req.getParameter("detail");
-        New aNew = new New(title, detail, new Date());
+        New aNew = new New(title, detail,d);
         // List<New> news = (List<New>) getServletContext().getAttribute("news");
         if (idParam == null || idParam.isEmpty())
             this.newsService.addNew(aNew);

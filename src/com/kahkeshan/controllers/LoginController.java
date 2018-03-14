@@ -38,11 +38,16 @@ public class LoginController extends HttpServlet {
             if (role == null) {
                 resp.sendRedirect("/login.jsp?msg=role is not defined!!!");
             }
-            req.getSession().setAttribute("role", role);
-            resp.sendRedirect("/" + role + "/listNews.do");
+            else if(role.equalsIgnoreCase("reporter"))
+            {
+                resp.sendRedirect("/" + role + "/reporterPage.jsp");
+            }else {
+                req.getSession().setAttribute("role", role);
+                resp.sendRedirect("/" + role + "/listNews.do");
+            }
 
-
-        } else {
+        } else
+            {
             resp.sendRedirect("/login.jsp?msg=username or password is incorrect");
         }
 

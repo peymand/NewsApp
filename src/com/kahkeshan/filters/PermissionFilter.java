@@ -13,12 +13,13 @@ Date: 3/5/2018
 Time: 5:44 PM
 Year: 2018
 */
-@WebFilter(filterName = "permission",urlPatterns = {"/admin/*","/user/*"})
+@WebFilter(filterName = "permission", urlPatterns = {"/admin/*", "/user/*","/reporter/*"})
 public class PermissionFilter implements Filter {
     FilterConfig filter;
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-         this.filter = filterConfig;
+        this.filter = filterConfig;
     }
 
     @Override
@@ -30,24 +31,17 @@ public class PermissionFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
         String role = (String) session.getAttribute("role");
-        if(role!=null && role.equalsIgnoreCase("admin"))
-            filterChain.doFilter(servletRequest,servletResponse);
-
-        else{
-            if(role==null){
-                response.sendRedirect("/login.jsp");
-            }
-            else if(role.equals("user")){
-                if(request.getRequestURI().indexOf("admin")>0){
-                    response.sendRedirect("/login.jsp");
-                }
-                else{
-                    filterChain.doFilter(servletRequest,servletResponse);
-
-                }
-            }
+        if (role == null) {
+            response.sendRedirect("/login.jsp");
+        } else if (request.getRequestURI().indexOf("admin") > 0 && !role.equalsIgnoreCase("admin")) {
+            response.sendRedirect("/login.jsp");
+        } else if (request.getRequestURI().indexOf("user") > 0 && !role.equalsIgnoreCase("user")) {
+            response.sendRedirect("/login.jsp");
+        } else if (request.getRequestURI().indexOf("reporter") > 0 && !role.equalsIgnoreCase("reporter")) {
+            response.sendRedirect("/login.jsp");
+        } else {
+            filterChain.doFilter(servletRequest, servletResponse);
         }
-
     }
 
     @Override

@@ -34,4 +34,13 @@ public class LoginDAOImpl implements LoginDAO {
         session.getTransaction().commit();
         session.close();
     }
+
+    @Override
+    public boolean checkUser(String name, String password) {
+        Session session=HibernateUtil.getSession();
+        Query query = session.createQuery("from User u WHERE u.name = :name and u.password = :password");
+        query.setParameter("name",name);
+        query.setParameter("password",password);
+        return (query.getResultList().size()>0) ? true : false;
+    }
 }

@@ -1,6 +1,7 @@
 package com.kahkeshan.listeners;
 
 import com.kahkeshan.models.New;
+import com.nicico.util.HibernateUtil;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -18,6 +19,7 @@ public class ContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent event) {
         event.getServletContext().setAttribute("news",new ArrayList<New>());
+        HibernateUtil.getSession().close();
     }
 
     @Override

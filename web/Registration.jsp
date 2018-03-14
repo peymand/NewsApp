@@ -31,9 +31,9 @@
             <label for="role" class="col-sm-3 control-label">Role</label>
             <div class="col-sm-9">
                 <select id="role" name="role" class="form-control">
-                    <option>Admin</option>
-                    <option>Reporter</option>
-                    <option>User</option>
+                    <option>admin</option>
+                    <option>reporter</option>
+                    <option>user</option>
                 </select>
             </div>
         </div> <!-- /.form-group -->

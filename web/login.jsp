@@ -23,6 +23,9 @@
           <div class="panel-body">
             <form class="form-horizontal" role="form" action="/login.do">
               <div class="form-group">
+                <label for="username" style="color:red">${param.msg}</label>
+                </div>
+              <div class="form-group">
                 <label for="username" class="col-sm-3 control-label">
                   UserName</label>
                 <div class="col-sm-9">

@@ -3,3 +3,5 @@
 /NewsApp.iml
 /out/
 /web/WEB-INF/lib/
+/src/hibernate.cfg.xml
+Add_Role_&_User_Class.patch

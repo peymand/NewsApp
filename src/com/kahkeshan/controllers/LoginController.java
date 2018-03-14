@@ -17,7 +17,7 @@ Time: 6:48 PM
 Year: 2018
 */
 @WebServlet("/login.do")
-public class LoginController extends HttpServlet{
+public class LoginController extends HttpServlet {
 
     LoginService loginService;
 
@@ -30,14 +30,22 @@ public class LoginController extends HttpServlet{
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        User user = new User(username, password);
-        String role = loginService.getRole(user);
+        boolean isValid = loginService.checkUser(username, password);
+        if (isValid) {
+            User user = new User(username, password);
+            String role = loginService.getRole(user);
 
-        if(role==null){
-            resp.sendRedirect("/login.jsp");
+            if (role == null) {
+                resp.sendRedirect("/login.jsp?msg=role is not defined!!!");
+            }
+            req.getSession().setAttribute("role", role);
+            resp.sendRedirect("/" + role + "/listNews.do");
+
+
+        } else {
+            resp.sendRedirect("/login.jsp?msg=username or password is incorrect");
         }
-        req.getSession().setAttribute("role",role);
-                resp.sendRedirect("/"+role+"/listNews.do");
+
 
     }
 }

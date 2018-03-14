@@ -22,8 +22,15 @@ public class LoginService {
         return this.loginDAO.getRole(user);
 
     }
+    public boolean userValid(String user,String password){
+        return true;
+    }
 
     public void register(User user) {
         loginDAO.register(user);
+    }
+
+    public boolean checkUser(String user,String pass) {
+        return loginDAO.checkUser(user, pass);
     }
 }

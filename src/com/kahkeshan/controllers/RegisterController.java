@@ -35,13 +35,13 @@ public class RegisterController extends HttpServlet {
         String password = req.getParameter("password");
         Role role = null;
         switch (roleParam) {
-            case "User":
+            case "user":
                 role = Role.user;
                 break;
-            case "Admin":
+            case "admin":
                 role = Role.admin;
                 break;
-            case "Reporter":
+            case "reporter":
                 role = Role.reporter;
                 break;
         }

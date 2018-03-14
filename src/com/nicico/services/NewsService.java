@@ -30,4 +30,7 @@ public class NewsService {
     public void delete(int id){
         this.newDAO.delete(id);
     }
+    public void update(New aNew){
+        this.newDAO.update(aNew);
+    }
 }

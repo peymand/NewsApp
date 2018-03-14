@@ -49,6 +49,10 @@ public class NewDAOImpl implements NewDAO {
 
     @Override
     public void update(New bNew) {
-
+        Session session=HibernateUtil.getSession();
+        session.getTransaction().begin();
+        session.update(bNew);
+        session.getTransaction().commit();
+        session.close();
     }
 }

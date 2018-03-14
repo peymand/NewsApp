@@ -19,6 +19,7 @@
 
         <form action="/addnew.do" method="post" class="col-md-8 col-md-offset-2">
 
+            <input value="${param.id}" type="hidden" name="id">
 
             <div class="form-group">
                 <label for="title">Title</label>

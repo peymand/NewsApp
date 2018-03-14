@@ -37,7 +37,7 @@ public class LoginController extends HttpServlet{
             resp.sendRedirect("/login.jsp");
         }
         req.getSession().setAttribute("role",role);
-                resp.sendRedirect("/"+role+"/newsPage.do");
+                resp.sendRedirect("/"+role+"/listNews.do");
 
     }
 }

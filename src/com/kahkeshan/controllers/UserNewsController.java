@@ -16,7 +16,7 @@ import java.util.List;
 public class UserNewsController extends HttpServlet{
     private NewsService newsService;
 
-    public UserNewsController(NewsService newsService) {
+    public UserNewsController() {
      newsService = new NewsService();
     }
 

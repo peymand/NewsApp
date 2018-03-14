@@ -22,6 +22,7 @@ public class NewsService {
 
     public void addNew(New item){
         this.newDAO.addNew(item);
+
     }
 
     public List<New> getAll(){

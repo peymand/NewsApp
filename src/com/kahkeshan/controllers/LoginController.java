@@ -36,13 +36,8 @@ public class LoginController extends HttpServlet{
         if(role==null){
             resp.sendRedirect("/login.jsp");
         }
-        else if(role.equalsIgnoreCase("admin")){
-            req.getSession().setAttribute("role",role);
-            resp.sendRedirect("/admin/newsPage.jsp");
-        }
-        else{
-            req.getSession().setAttribute("role",role);
-            resp.sendRedirect("/user/viewNewsPage.jsp");
-        }
+        req.getSession().setAttribute("role",role);
+                resp.sendRedirect("/"+role+"/newsPage.do");
+
     }
 }

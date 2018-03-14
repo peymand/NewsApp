@@ -18,13 +18,13 @@
 </head>
 <body>
 <div class="container">
-    <div class="row col-sm-8 col-offset-2">
+    <div class="row col-sm-8 col-md-offset-2">
         <form action="/admin/newsPage.jsp" method="get" class="form">
             <input type="submit" value="Add" class="btn btn-info">
         </form>
 
     </div>
-    <div class="row col-sm-8 col-offset-2">
+    <div class="row col-sm-8 col-md-offset-2">
         <table class="table">
             <tr>
                 <th>Id</th>

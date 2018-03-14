@@ -6,20 +6,34 @@ Date: 3/14/2018
 Time: 9:12 AM
 Year: 2018
 */
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "users")
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false, unique = true)
     int id;
     String name;
-    String family;
+
+    @Column(columnDefinition = "varchar(255)")
     Role role;
     String password;
+
+    public User(String name, String password) {
+        this.name = name;
+        this.password = password;
+    }
 
     public User() {
     }
 
-    public User(String name, String family, Role role, String password) {
+    public User(String name, Role role, String password) {
         this.name = name;
-        this.family = family;
+
         this.role = role;
         this.password = password;
     }
@@ -38,14 +52,6 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getFamily() {
-        return family;
-    }
-
-    public void setFamily(String family) {
-        this.family = family;
     }
 
     public Role getRole() {

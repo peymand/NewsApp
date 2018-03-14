@@ -30,16 +30,16 @@ public class PermissionFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
         String role = (String) session.getAttribute("role");
-        if(role!=null && role.equals("admin"))
+        if(role!=null && role.equalsIgnoreCase("admin"))
             filterChain.doFilter(servletRequest,servletResponse);
 
         else{
             if(role==null){
-                response.sendRedirect("/index.jsp");
+                response.sendRedirect("/login.jsp");
             }
             else if(role.equals("user")){
                 if(request.getRequestURI().indexOf("admin")>0){
-                    response.sendRedirect("/index.jsp");
+                    response.sendRedirect("/login.jsp");
                 }
                 else{
                     filterChain.doFilter(servletRequest,servletResponse);

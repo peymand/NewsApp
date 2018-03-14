@@ -23,6 +23,17 @@ public class User {
     Role role;
     String password;
 
+
+    @OneToOne(mappedBy = "user")
+    New aNew;
+    public New getaNew() {
+        return aNew;
+    }
+
+    public void setaNew(New aNew) {
+        this.aNew = aNew;
+    }
+
     public User(String name, String password) {
         this.name = name;
         this.password = password;

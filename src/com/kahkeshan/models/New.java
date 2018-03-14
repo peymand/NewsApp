@@ -1,7 +1,6 @@
 package com.kahkeshan.models;
 
 import javax.persistence.*;
-import javax.xml.crypto.Data;
 import java.util.Date;
 
 /* com.kahkeshan.models
@@ -19,6 +18,20 @@ public class New {
     int id;
     String title;
     String detail;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn (name = "user_id")
+    User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
 
     public int getId() {
         return id;

@@ -24,7 +24,7 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Desc</th>
-                <th>Date</th>
+                <th>Author</th>
                 <th>Delete</th>
                 <th>Edit</th>
             </tr>
@@ -33,7 +33,7 @@
                     <td>${item.id}</td>
                     <td>${item.title}</td>
                     <td>${item.detail}</td>
-                    <td>${item.date}</td>
+                    <td><a href="/showUserProfile.do?id=${item.user.id}">${item.user.name}</a></td>
                     <td><a href="/admin/deleteNews.do?id=${item.id}">
                         <button title="delete" type="button"
                                 class="btn btn-danger remove show_tip"
@@ -41,7 +41,7 @@
                             <i class="fa fa-trash-o"></i></button>
                     </a></td>
 
-                    <td><a href="/reporter/addoreditPage.jsp?id=${item.id}&title=${item.title}&detail=${item.detail}&date=${item.date}">
+                    <td><a href="/admin/addoreditPage.jsp?id=${item.id}&title=${item.title}&detail=${item.detail}&date=${item.date}">
                         <button title="edit" type="button"
                                 class="btn btn-info edit show_tip"
                                 data-original-title="Edit from list">

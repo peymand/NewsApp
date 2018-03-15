@@ -13,14 +13,14 @@ Year: 2018
 @Table(name ="News")
 public class New {
     @Id
-            @GeneratedValue(strategy = GenerationType.IDENTITY)
-            @Column(nullable = false ,unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @Column(nullable = false ,unique = true)
     int id;
     String title;
     String detail;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn (name = "user_id")
+    @JoinColumn(name="user_id")
     User user;
 
     public New(String title, String detail, User user, Date date) {

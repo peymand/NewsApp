@@ -22,7 +22,7 @@
             ${user.name}
             with role:
             ${user.role}
-            welcome to your profile
+            welcome to your profile.
 
         </div>
 

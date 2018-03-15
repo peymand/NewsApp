@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row col-md-8 col-md-offset-2 panel panel-default">
 
-        <form class="form" action="/admin/listNews.do" method="post">
+        <form class="form" action="/reporter/addnew.do" method="post">
 
             <input value="${param.id}" type="hidden" name="id">
 

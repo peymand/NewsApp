@@ -1,7 +1,9 @@
 package com.kahkeshan.controllers;
 
 import com.kahkeshan.models.New;
+import com.kahkeshan.models.User;
 import com.nicico.services.NewsService;
+import com.nicico.util.HibernateUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +22,7 @@ Date: 3/10/2018
 Time: 6:56 PM
 Year: 2018
 */
-@WebServlet("/addnew.do")
+@WebServlet("/reporter/addnew.do")
 public class AddNewController extends HttpServlet {
     NewsService newsService;
 
@@ -41,7 +43,9 @@ public class AddNewController extends HttpServlet {
         }
         String title = req.getParameter("title");
         String detail = req.getParameter("detail");
-        New aNew = new New(title, detail,d);
+        int userId= (int) req.getSession().getAttribute("userid");
+        User user = HibernateUtil.getSession().get(User.class, userId);
+        New aNew = new New(title, detail, user, d);
         // List<New> news = (List<New>) getServletContext().getAttribute("news");
         if (idParam == null || idParam.isEmpty())
             this.newsService.addNew(aNew);
@@ -53,6 +57,6 @@ public class AddNewController extends HttpServlet {
         }
             // getServletContext().setAttribute("news",news);
 
-            resp.sendRedirect("/admin/listNews.do");
+            resp.sendRedirect("/reporter/reporterPage.jsp");
     }
 }

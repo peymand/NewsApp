@@ -12,5 +12,5 @@ public interface LoginDAO {
     String getRole(User user);
 
     void register(User user);
-    boolean checkUser(String user, String password);
+    int checkUser(String user, String password);
 }

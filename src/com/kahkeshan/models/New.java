@@ -23,6 +23,16 @@ public class New {
     @JoinColumn (name = "user_id")
     User user;
 
+    public New(String title, String detail, User user, Date date) {
+        this.title = title;
+        this.detail = detail;
+        this.user = user;
+        this.date = date;
+    }
+
+    public New(String title, String detail, Date d, int userId) {
+    }
+
     public User getUser() {
         return user;
     }

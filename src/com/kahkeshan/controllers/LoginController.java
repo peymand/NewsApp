@@ -30,10 +30,13 @@ public class LoginController extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        boolean isValid = loginService.checkUser(username, password);
-        if (isValid) {
+        int userId = loginService.checkUser(username, password);
+        if (userId>0) {
             User user = new User(username, password);
+
+            req.getSession().setAttribute("userid",userId);
             String role = loginService.getRole(user);
+            req.getSession().setAttribute("role",role);
             if (role == null) {
                 resp.sendRedirect("/login.jsp?msg=role is not defined!!!");
             }

@@ -16,7 +16,7 @@
         <div class="col-sm-8 col-sm-offcet-4">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Add New</a>
+                    <a class="nav-link active" href="/reporter/addoreditPage.jsp">Add New</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">View My New</a>

@@ -30,7 +30,7 @@ public class LoginService {
         loginDAO.register(user);
     }
 
-    public boolean checkUser(String user,String pass) {
+    public int checkUser(String user, String pass) {
         return loginDAO.checkUser(user, pass);
     }
 }

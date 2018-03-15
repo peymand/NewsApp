@@ -15,6 +15,7 @@ public interface NewDAO {
     List<New> getAll();
     void delete (int id);
     void update (New bNew);
+    List<New> getNews(int userid);
 
 
 }

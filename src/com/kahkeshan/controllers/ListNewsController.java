@@ -1,7 +1,9 @@
 package com.kahkeshan.controllers;
 
 import com.kahkeshan.models.New;
+import com.kahkeshan.models.User;
 import com.nicico.services.NewsService;
+import com.nicico.services.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,17 +19,25 @@ Date: 3/13/2018
 Time: 11:11 AM
 Year: 2018
 */
-@WebServlet("/admin/listNews.do")
+@WebServlet("/reporter/listNews.do")
 public class ListNewsController extends HttpServlet{
+    private NewsService newsService;
+    UserService userService;
+
+
     public ListNewsController() {
         this.newsService = new NewsService();
     }
 
-    private NewsService newsService;
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<New> newList=newsService.getAll();
+        int userId= (int) req.getSession().getAttribute("userid");
+//        User user = userService.getUser(userId);
+
+//        List<New> newList=newsService.getAll();
+        List<New> newList=newsService.getNews(userId);
+
         req.setAttribute("news",newList);
-        req.getRequestDispatcher("/admin/listNews.jsp").forward(req,resp);
+        req.getRequestDispatcher("/reporter/listNews.jsp").forward(req,resp);
     }
 }

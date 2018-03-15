@@ -28,6 +28,10 @@ public class NewsService {
     public List<New> getAll(){
         return this.newDAO.getAll();
     }
+    public List<New> getNews(int userid){
+        return this.newDAO.getNews(userid);
+    }
+
     public void delete(int id){
         this.newDAO.delete(id);
     }

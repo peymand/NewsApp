@@ -19,7 +19,7 @@
                     <a class="nav-link active" href="/reporter/addoreditPage.jsp">Add New</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">View My New</a>
+                    <a class="nav-link" href="/reporter/listNews.do">View My New</a>
                 </li>
             </ul>
         </div>

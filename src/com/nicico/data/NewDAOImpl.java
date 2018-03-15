@@ -37,6 +37,17 @@ public class NewDAOImpl implements NewDAO {
     }
 
     @Override
+    public List<New> getNews(int userid) {
+        List<New> newList;
+        Session session=HibernateUtil.getSession();
+        Query query = session.createQuery("from New where user_id=:x");
+        query.setParameter("x",userid);
+        newList=query.list();
+        session.close();
+        return newList;
+    }
+
+    @Override
     public void delete(int id) {
         Session session=HibernateUtil.getSession();
         session.getTransaction().begin();

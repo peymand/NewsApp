@@ -55,4 +55,9 @@ public class NewDAOImpl implements NewDAO {
         session.getTransaction().commit();
         session.close();
     }
+    public String getUserName(int id) {
+
+        return null;
+    }
+
 }

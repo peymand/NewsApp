@@ -24,6 +24,7 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Desc</th>
+                <th>Author</th>
                 <th>Delete</th>
                 <th>Edit</th>
             </tr>
@@ -32,6 +33,7 @@
                     <td>${item.id}</td>
                     <td>${item.title}</td>
                     <td>${item.detail}</td>
+                    <td><a href="/showUserProfile.do?id=${item.user.id}">${item.user.name}</a></td>
                     <td><a href="/admin/deleteNews.do?id=${item.id}">
                         <button title="delete" type="button"
                                 class="btn btn-danger remove show_tip"

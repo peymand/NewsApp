@@ -41,7 +41,7 @@
                             <i class="fa fa-trash-o"></i></button>
                     </a></td>
 
-                    <td><a href="/admin/addoreditPage.jsp?id=${item.id}&title=${item.title}&detail=${item.detail}">
+                    <td><a href="/admin/addoreditPage.jsp?id=${item.id}&title=${item.title}&detail=${item.detail}&date=${item.date}">
                         <button title="edit" type="button"
                                 class="btn btn-info edit show_tip"
                                 data-original-title="Edit from list">

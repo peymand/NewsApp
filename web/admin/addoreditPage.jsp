@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row col-md-8 col-md-offset-2 panel panel-default">
 
-        <form class="form" action="/addnew.do" method="post">
+        <form class="form" action="/admin/listNews.do" method="post">
 
             <input value="${param.id}" type="hidden" name="id">
 
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="date" class="control-label col-sm-2">Date:</label>
-                <input type="date" name="date" id="date" class="form-control">
+                <input type="date" name="date" id="date" class="form-control" value="${param.date}">
             </div>
 
             <div class="col-sm-offset-2 col-sm-10">
